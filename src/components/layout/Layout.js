@@ -4,9 +4,13 @@ import Form from '../form/Form';
 import Card from '../ui/Card';
 import Todos from '../todo/Todos';
 import { useState } from 'react';
+import SearchSort from '../searchsort/SearchSort';
+import Empty from '../ui/Empty';
 
 const Layout = (props) => {
 	const [todos, setTodos] = useState([]);
+
+	const hasTodos = todos.length > 0;
 
 	const addTodo = (todo) => {
 		props.setShow(true);
@@ -31,6 +35,10 @@ const Layout = (props) => {
 				<Card padding={true}>
 					<Form onSubmit={addTodo} />
 				</Card>
+				<Card padding={true}>
+					<SearchSort />
+				</Card>
+				{!hasTodos && <Empty />}
 				<Card padding={false}>
 					<Todos todos={todos} />
 				</Card>
