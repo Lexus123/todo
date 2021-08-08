@@ -9,6 +9,7 @@ const Layout = (props) => {
 	const [todos, setTodos] = useState([]);
 
 	const addTodo = (todo) => {
+		props.setShow(true);
 		setTodos(previousTodos => [...previousTodos, todo]);
 	};
 

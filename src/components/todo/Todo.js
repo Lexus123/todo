@@ -29,9 +29,7 @@ const Todo = (props) => {
 						</div>
 						<div className="ml-3 w-0 flex-1 pt-0.5">
 							<p className="text-sm font-medium text-gray-900">{props.todo.text}</p>
-							{/* <p className="mt-1 text-sm text-gray-500">Added on: {props.todo.createdAt}</p> */}
 							<div className="mt-2 flex">
-
 								<div className="flex items-center text-sm text-gray-500">
 									<CalendarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
 									<p>
@@ -39,17 +37,6 @@ const Todo = (props) => {
 									</p>
 								</div>
 							</div>
-						</div>
-						<div className="ml-4 flex-shrink-0 flex">
-							{/* <button
-									className="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-									onClick={() => {
-										setShow(false)
-									}}
-								>
-									<span className="sr-only">Close</span>
-									<XIcon className="h-5 w-5" aria-hidden="true" />
-								</button> */}
 						</div>
 					</div>
 				</div>
