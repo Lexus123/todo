@@ -29,6 +29,10 @@ const sorts = [
 ];
 
 const SearchSort = (props) => {
+	const onSearchHandler = (event) => {
+		props.onSearch(event.target.value);
+	};
+
 	return (
 		<div className="flex items-center justify-between">
 			<label htmlFor="search" className="sr-only">
@@ -44,6 +48,8 @@ const SearchSort = (props) => {
 					placeholder="Search"
 					type="search"
 					name="search"
+					onChange={onSearchHandler}
+					value={props.searchValue}
 				/>
 			</div>
 			<Menu as="div" className="relative">

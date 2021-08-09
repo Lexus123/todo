@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import SearchSort from './components/searchsort/SearchSort';
 import Empty from './components/ui/Empty';
 import Header from "./components/layout/Header";
@@ -11,13 +11,26 @@ import Main from "./components/layout/Main";
 
 const App = () => {
 	const [show, setShow] = useState(false);
-
 	const [todos, setTodos] = useState([]);
+	const [searchedTodos, setSearchedTodos] = useState([]);
+	const [hasTodos, setHasTodos] = useState(false);
+	const [searchText, setSearchText] = useState("");
 
-	const hasTodos = todos.length > 0;
+	useEffect(() => {
+		setHasTodos(searchedTodos.length > 0);
+	}, [searchedTodos]);
+
+	useEffect(() => {
+		setSearchedTodos(todos);
+	}, [todos]);
+
+	useEffect(() => {
+		setSearchedTodos(todos.filter((t) => t.text.toLowerCase().includes(searchText.toLowerCase())));
+	}, [todos, searchText]);
 
 	const addTodo = (todo) => {
 		setShow(true);
+		setSearchText("");
 		setTodos(previousTodos => [...previousTodos, todo]);
 	};
 
@@ -30,11 +43,11 @@ const App = () => {
 						<Form addTodo={addTodo} />
 					</Card>
 					<Card padding={true}>
-						<SearchSort />
+						<SearchSort onSearch={setSearchText} searchValue={searchText} />
 					</Card>
 					{!hasTodos && <Empty />}
 					<Card padding={false}>
-						<Todos todos={todos} />
+						<Todos todos={searchedTodos} />
 					</Card>
 				</Main>
 			</Structure>
