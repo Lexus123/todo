@@ -1,17 +1,28 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 const Form = (props) => {
+	// Setup state management
 	const [todoText, setTodoText] = useState("");
+	const [isEmpty, setIsEmpty] = useState(true);
 
+	// Only check if input field is empty when todoText changes
+	useEffect(() => {
+		setIsEmpty(todoText.trim().length < 1);
+	}, [todoText]);
+
+	// onChangeTodo fires when the user types
 	const onChangeTodo = (event) => {
 		setTodoText(event.target.value);
 	};
 
+	// onSubmitHandler fires when the user submits a form
 	const onSubmitHandler = (event) => {
 		event.preventDefault();
 
+		// Get the current timestamp
 		const createdAt = Date.now();
 
+		// Create the todo object
 		const todo = {
 			createdAt: createdAt,
 			id: createdAt,
@@ -19,9 +30,9 @@ const Form = (props) => {
 		};
 
 		// Add it to the list
-		props.onSubmit(todo);
+		props.addTodo(todo);
 
-		// Reset to empty
+		// Reset the input field to empty
 		setTodoText("");
 	}
 
@@ -49,7 +60,8 @@ const Form = (props) => {
 				</div>
 				<button
 					type="submit"
-					className="mt-3 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+					disabled={isEmpty}
+					className="mt-3 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm disabled:opacity-50"
 				>
 					Add todo
 				</button>

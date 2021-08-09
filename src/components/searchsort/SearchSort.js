@@ -1,13 +1,32 @@
 import { Menu } from '@headlessui/react'
-import {
-	ChevronDownIcon,
-	SearchIcon,
-	SortAscendingIcon,
-} from '@heroicons/react/solid'
+import { ChevronDownIcon, SearchIcon, SortAscendingIcon } from '@heroicons/react/solid'
 
-function classNames(...classes) {
+const classNames = (...classes) => {
 	return classes.filter(Boolean).join(' ')
 }
+
+const sorts = [
+	{
+		key: 1,
+		on: "Name",
+		direction: "(A - Z)"
+	},
+	{
+		key: 2,
+		on: "Name",
+		direction: "(Z - A)"
+	},
+	{
+		key: 3,
+		on: "Date added",
+		direction: "(newest first)"
+	},
+	{
+		key: 4,
+		on: "Date added",
+		direction: "(oldest first)"
+	}
+];
 
 const SearchSort = (props) => {
 	return (
@@ -35,62 +54,22 @@ const SearchSort = (props) => {
 				</Menu.Button>
 				<Menu.Items className="origin-top-right z-10 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
 					<div className="py-1">
-						<Menu.Item>
-							{({ active }) => (
-								<div
-									className={classNames(
-										active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-										'flex justify-between px-4 py-2 text-sm'
-									)}
-								>
+						{sorts.map((sort) =>
+							<Menu.Item key={sort.key}>
+								{({ active }) => (
+									<div
+										className={classNames(
+											active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+											'flex justify-between px-4 py-2 text-sm'
+										)}
+									>
 
-									<b>Name</b>
-									<p>(A - Z)</p>
-								</div>
-							)}
-						</Menu.Item>
-						<Menu.Item>
-							{({ active }) => (
-								<div
-									className={classNames(
-										active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-										'flex justify-between px-4 py-2 text-sm'
-									)}
-								>
-
-									<b>Name</b>
-									<p>(Z - A)</p>
-								</div>
-							)}
-						</Menu.Item>
-						<Menu.Item>
-							{({ active }) => (
-								<div
-									className={classNames(
-										active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-										'flex justify-between px-4 py-2 text-sm'
-									)}
-								>
-
-									<b>Date added</b>
-									<p>(newest first)</p>
-								</div>
-							)}
-						</Menu.Item>
-						<Menu.Item>
-							{({ active }) => (
-								<div
-									className={classNames(
-										active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-										'flex justify-between px-4 py-2 text-sm'
-									)}
-								>
-
-									<b>Date added</b>
-									<p>(oldest first)</p>
-								</div>
-							)}
-						</Menu.Item>
+										<b>{sort.on}</b>
+										<p>{sort.direction}</p>
+									</div>
+								)}
+							</Menu.Item>
+						)}
 					</div>
 				</Menu.Items>
 			</Menu>
