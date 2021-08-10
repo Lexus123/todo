@@ -25,7 +25,7 @@ const Todo = (props) => {
 		<li className="hover:bg-gray-50">
 			<div className="p-4">
 				<div className="flex items-center">
-					<div className="flex flex-1">
+					<div className="flex w-full">
 						<div className="flex-shrink-0">
 							<CheckCircleIcon className={checkmarkClases} aria-hidden="true" />
 						</div>
@@ -46,17 +46,17 @@ const Todo = (props) => {
 					>
 						<CheckIcon className="h-5 w-5" aria-hidden="true" />
 					</button> */}
-					<span className="relative z-0 inline-flex shadow-sm rounded-md mt-3 w-full sm:mt-0 sm:ml-3 sm:w-auto">
+					<span className="relative z-0 inline-flex shadow-sm rounded-md ml-3 sm:w-auto">
 						<button
 							type="button"
-							className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-green-300 bg-white text-sm font-medium text-green-500 hover:bg-green-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 w-full"
+							className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-green-500 bg-green-50 text-sm font-medium text-green-600 hover:bg-green-200 focus:z-10 focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 w-full"
 						>
 							<span className="sr-only">Complete</span>
 							<CheckIcon className="h-5 w-5" aria-hidden="true" />
 						</button>
 						<button
 							type="button"
-							className="-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md border border-red-300 bg-white text-sm font-medium text-red-500 hover:bg-red-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500 w-full"
+							className="-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md border border-red-500 bg-red-50 text-sm font-medium text-red-600 hover:bg-red-200 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500 w-full"
 						>
 							<span className="sr-only">Delete</span>
 							<TrashIcon className="h-5 w-5" aria-hidden="true" />
