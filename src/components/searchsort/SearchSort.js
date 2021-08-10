@@ -38,13 +38,13 @@ const SearchSort = (props) => {
 			<label htmlFor="search" className="sr-only">
 				Search
 			</label>
-			<div className="relative text-gray-400 focus-within:text-gray-600 w-full sm:mr-2 md:mr-5 lg:mr-5">
+			<div className="relative text-gray-400 dark:text-gray-400 focus-within:text-gray-600 dark:focus-within:text-gray-200 w-full sm:mr-2 md:mr-5 lg:mr-5">
 				<div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
 					<SearchIcon className="h-5 w-5" aria-hidden="true" />
 				</div>
 				<input
 					id="search"
-					className="block w-full bg-white py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white focus:border-white sm:text-sm"
+					className="block w-full bg-white dark:bg-gray-700 py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 text-gray-900 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 dark:focus:ring-offset-indigo-400 focus:ring-white dark:focus:ring-transparent focus:border-white dark:focus:border-transparent sm:text-sm"
 					placeholder="Search"
 					type="search"
 					name="search"
