@@ -53,23 +53,22 @@ const SearchSort = (props) => {
 				/>
 			</div>
 			<Menu as="div" className="relative">
-				<Menu.Button className="w-full bg-white border border-gray-300 rounded-md shadow-sm px-4 py-2 inline-flex justify-center text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+				<Menu.Button className="w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-700 dark:hover:border-gray-900 rounded-md shadow-sm px-4 py-2 inline-flex justify-center text-sm font-medium text-gray-700 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-indigo-400">
 					<SortAscendingIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
 					Sort
 					<ChevronDownIcon className="ml-2.5 -mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
 				</Menu.Button>
-				<Menu.Items className="origin-top-right z-10 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+				<Menu.Items className="origin-top-right z-10 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none">
 					<div className="py-1">
 						{sorts.map((sort) =>
 							<Menu.Item key={sort.key}>
 								{({ active }) => (
 									<div
 										className={classNames(
-											active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+											active ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-200' : 'text-gray-700 dark:text-gray-300',
 											'flex justify-between px-4 py-2 text-sm'
 										)}
 									>
-
 										<b>{sort.on}</b>
 										<p>{sort.direction}</p>
 									</div>
