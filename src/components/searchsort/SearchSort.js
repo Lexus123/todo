@@ -44,7 +44,7 @@ const SearchSort = (props) => {
 				</div>
 				<input
 					id="search"
-					className="block w-full bg-white dark:bg-gray-700 py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 text-gray-900 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 dark:focus:ring-offset-indigo-400 focus:ring-white dark:focus:ring-transparent focus:border-white dark:focus:border-transparent sm:text-sm"
+					className="block w-full bg-white dark:bg-gray-700 py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 dark:focus:ring-offset-indigo-400 focus:ring-white dark:focus:ring-transparent focus:border-white dark:focus:border-transparent sm:text-sm"
 					placeholder="Search"
 					type="search"
 					name="search"
