@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import SearchSort from './components/searchsort/SearchSort';
+import SearchSort, { sorts } from './components/searchsort/SearchSort';
 import Empty from './components/ui/Empty';
 import Header from "./components/layout/Header";
 import Notification from "./components/notification/Notification";
@@ -15,6 +15,7 @@ const App = () => {
 	const [searchedTodos, setSearchedTodos] = useState([]);
 	const [hasTodos, setHasTodos] = useState(false);
 	const [searchText, setSearchText] = useState("");
+	const [sort, setSort] = useState(sorts[0]);
 
 	useEffect(() => {
 		setHasTodos(searchedTodos.length > 0);
@@ -27,6 +28,24 @@ const App = () => {
 	useEffect(() => {
 		setSearchedTodos(todos.filter((t) => t.text.toLowerCase().includes(searchText.toLowerCase())));
 	}, [todos, searchText]);
+
+	useEffect(() => {
+		setTodos(ts => {
+			console.log("sdf");
+			if (sort.key === 1) {
+				return [...ts].sort((a, b) => a.id + b.id);
+			}
+			if (sort.key === 2) {
+				return [...ts].sort((a, b) => a.id - b.id);
+			}
+			if (sort.key === 3) {
+				return [...ts].sort((a, b) => a.id + b.id);
+			}
+			if (sort.key === 4) {
+				return [...ts].sort((a, b) => a.id - b.id);
+			}
+		});
+	}, [sort]);
 
 	const addTodo = (todo) => {
 		setShow(true);
@@ -43,7 +62,7 @@ const App = () => {
 						<Form addTodo={addTodo} />
 					</Card>
 					<Card padding={true}>
-						<SearchSort onSearch={setSearchText} searchValue={searchText} />
+						<SearchSort onSearch={setSearchText} searchValue={searchText} onClickSortHandler={setSort} />
 					</Card>
 					{!hasTodos && <Empty />}
 					<Card padding={false}>
