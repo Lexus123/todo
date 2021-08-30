@@ -31,18 +31,17 @@ const App = () => {
 
 	useEffect(() => {
 		setTodos(ts => {
-			console.log("sdf");
 			if (sort.key === 1) {
-				return [...ts].sort((a, b) => a.id + b.id);
+				return [...ts].sort((a, b) => a.id > b.id ? 1 : -1);
 			}
 			if (sort.key === 2) {
-				return [...ts].sort((a, b) => a.id - b.id);
+				return [...ts].sort((a, b) => a.id < b.id ? 1 : -1);
 			}
 			if (sort.key === 3) {
-				return [...ts].sort((a, b) => a.id + b.id);
+				return [...ts].sort((a, b) => a.id < b.id ? 1 : -1);
 			}
 			if (sort.key === 4) {
-				return [...ts].sort((a, b) => a.id - b.id);
+				return [...ts].sort((a, b) => a.id < b.id ? 1 : -1);
 			}
 		});
 	}, [sort]);
