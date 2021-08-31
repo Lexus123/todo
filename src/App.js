@@ -1,13 +1,11 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import SearchSort, { sorts } from './components/searchsort/SearchSort';
 import Empty from './components/ui/Empty';
-import Header from "./components/layout/Header";
 import Notification from "./components/notification/Notification";
-import Structure from "./components/layout/Structure";
 import Card from "./components/ui/Card";
 import Form from "./components/form/Form";
 import Todos from "./components/todo/Todos";
-import Main from "./components/layout/Main";
+import Layout from "./components/layout/Layout";
 
 const App = () => {
 	const [show, setShow] = useState(false);
@@ -53,24 +51,19 @@ const App = () => {
 	};
 
 	return (
-		<Fragment>
-			<Structure setShow={setShow}>
-				<Header title="Todo list" />
-				<Main>
-					<Card padding={true}>
-						<Form addTodo={addTodo} />
-					</Card>
-					<Card padding={true}>
-						<SearchSort onSearch={setSearchText} searchValue={searchText} onClickSortHandler={setSort} />
-					</Card>
-					{!hasTodos && <Empty />}
-					<Card padding={false}>
-						<Todos todos={searchedTodos} />
-					</Card>
-				</Main>
-			</Structure>
+		<Layout title="Todo list">
+			<Card padding={true}>
+				<Form addTodo={addTodo} />
+			</Card>
+			<Card padding={true}>
+				<SearchSort onSearch={setSearchText} searchValue={searchText} onClickSortHandler={setSort} />
+			</Card>
+			{!hasTodos && <Empty />}
+			<Card padding={false}>
+				<Todos todos={searchedTodos} />
+			</Card>
 			<Notification show={show} setShow={setShow} />
-		</Fragment>
+		</Layout>
 	);
 };
 
