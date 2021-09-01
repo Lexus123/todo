@@ -1,6 +1,11 @@
+import { useDispatch } from 'react-redux';
+import { todosActions } from '../../store/todos';
+import { notificationsActions } from '../../store/notifications';
 import { Fragment, useEffect, useState } from "react";
 
 const Form = (props) => {
+	const dispatch = useDispatch();
+
 	// Setup state management
 	const [todoText, setTodoText] = useState("");
 	const [isEmpty, setIsEmpty] = useState(true);
@@ -20,17 +25,21 @@ const Form = (props) => {
 		event.preventDefault();
 
 		// Get the current timestamp
-		const createdAt = Date.now();
+		const date = Date.now();
 
 		// Create the todo object
 		const todo = {
-			createdAt: createdAt,
-			id: createdAt,
-			text: todoText,
+			completed: false,
+			createdAt: date,
+			id: date,
+			text: todoText
 		};
 
 		// Add it to the list
-		props.addTodo(todo);
+		dispatch(todosActions.addTodo(todo));
+
+		// Show a notification
+		dispatch(notificationsActions.setShow(true));
 
 		// Reset the input field to empty
 		setTodoText("");
@@ -67,8 +76,7 @@ const Form = (props) => {
 				</button>
 			</form>
 		</Fragment>
-
-	)
+	);
 }
 
 export default Form;

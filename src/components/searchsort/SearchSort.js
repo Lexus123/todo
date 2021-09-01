@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+import { todosActions } from '../../store/todos';
 import { Menu } from '@headlessui/react'
 import { ChevronDownIcon, SearchIcon, SortAscendingIcon } from '@heroicons/react/solid'
 
@@ -29,8 +31,14 @@ export const sorts = [
 ];
 
 const SearchSort = (props) => {
-	const onSearchHandler = (event) => {
-		props.onSearch(event.target.value);
+	const dispatch = useDispatch();
+
+	const searchHandler = (event) => {
+		dispatch(todosActions.setSearchText(event.target.value));
+	};
+
+	const sortHandler = (sort) => {
+		dispatch(todosActions.setSortMethod(sort));
 	};
 
 	return (
@@ -48,7 +56,7 @@ const SearchSort = (props) => {
 					placeholder="Search"
 					type="search"
 					name="search"
-					onChange={onSearchHandler}
+					onChange={searchHandler}
 					value={props.searchValue}
 				/>
 			</div>
@@ -61,7 +69,7 @@ const SearchSort = (props) => {
 				<Menu.Items className="origin-top-right z-10 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none">
 					<div className="py-1">
 						{sorts.map((sort) =>
-							<Menu.Item key={sort.key} onClick={() => props.onClickSortHandler(sorts.find(s => s.key === sort.key))}>
+							<Menu.Item key={sort.key} onClick={() => sortHandler(sort)}>
 								{({ active }) => (
 									<div
 										className={classNames(

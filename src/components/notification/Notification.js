@@ -1,9 +1,17 @@
 import { Fragment } from 'react'
+import { useDispatch } from 'react-redux';
 import { Transition } from '@headlessui/react'
 import { CheckCircleIcon } from '@heroicons/react/outline'
 import { XIcon } from '@heroicons/react/solid'
+import { notificationsActions } from '../../store/notifications';
 
 const Notification = (props) => {
+	const dispatch = useDispatch();
+
+	const closeNotification = () => {
+		dispatch(notificationsActions.setShow(false));
+	};
+
 	return (
 		<>
 			{/* Global notification live region, render this permanently at the end of the document */}
@@ -36,9 +44,7 @@ const Notification = (props) => {
 									<div className="ml-4 flex-shrink-0 flex">
 										<button
 											className="bg-white dark:bg-gray-800 rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-											onClick={() => {
-												props.setShow(false)
-											}}
+											onClick={closeNotification}
 										>
 											<span className="sr-only">Close</span>
 											<XIcon className="h-5 w-5" aria-hidden="true" />

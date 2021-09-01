@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-// import { optionsReducer } from "./options";
+import { notificationsReducer } from "./notifications";
+import { todosReducer } from "./todos";
 
 const store = configureStore({
 	reducer: {
-		// options: optionsReducer
+		todos: todosReducer,
+		notifications: notificationsReducer
 	}
 });
 
