@@ -1,20 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialTodosState = {
-	todos: [
-		{
-			createdAt: 123,
-			isCompleted: false,
-			text: "abc",
-			id: 1
-		},
-		{
-			createdAt: 234,
-			isCompleted: true,
-			text: "cbd",
-			id: 2
-		}
-	],
+	todos: [],
 	searchText: "",
 	sortMethod: {
 		key: 1,
