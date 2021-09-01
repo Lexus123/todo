@@ -1,5 +1,6 @@
 import { CheckCircleIcon, TrashIcon } from '@heroicons/react/outline';
 import { CheckIcon } from '@heroicons/react/solid';
+import { useHistory } from 'react-router-dom';
 
 const getDateTime = (datetime) => {
 	const timeOptions = {
@@ -16,15 +17,21 @@ const getDateTime = (datetime) => {
 	return datetime.toLocaleTimeString(undefined, timeOptions);
 };
 
-const Todo = (props) => {
+const TodoListItem = (props) => {
+	const history = useHistory();
+
 	const dateTime = getDateTime(new Date(props.todo.createdAt));
 
 	const checkmarkClases = props.todo.isCompleted ? "h-6 w-6 text-green-400" : "h-6 w-6 text-gray-300 dark:text-gray-400";
 
+	const viewTodoHandler = () => {
+		history.push("/todos/" + props.todo.id);
+	};
+
 	return (
 		<li className="hover:bg-gray-50 dark:hover:bg-gray-900">
 			<div className="p-4">
-				<div className="flex items-center">
+				<div className="flex items-center" onClick={viewTodoHandler}>
 					<div className="flex w-full">
 						<div className="flex-shrink-0">
 							<CheckCircleIcon className={checkmarkClases} aria-hidden="true" />
@@ -62,4 +69,4 @@ const Todo = (props) => {
 	)
 }
 
-export default Todo;
+export default TodoListItem;

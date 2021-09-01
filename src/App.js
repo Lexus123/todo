@@ -1,10 +1,12 @@
 import { lazy, Suspense } from "react";
 import Notification from "./components/notification/Notification";
 import Layout from "./components/layout/Layout";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { useSelector } from 'react-redux';
+import Loading from "./components/loading/Loading";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
+const TodoPage = lazy(() => import("./pages/TodoPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 const App = () => {
@@ -12,10 +14,16 @@ const App = () => {
 
 	return (
 		<Layout title="Todo list">
-			<Suspense fallback={<p>Loading...</p>}>
+			<Suspense fallback={<Loading />}>
 				<Switch>
 					<Route path="/" exact>
+						<Redirect to="todos" />
+					</Route>
+					<Route path="/todos" exact>
 						<HomePage />
+					</Route>
+					<Route path='/todos/:todoId'>
+						<TodoPage />
 					</Route>
 					<Route path="*">
 						<NotFoundPage />
