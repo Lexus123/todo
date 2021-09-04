@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import Card from "../components/ui/Card";
 
 const NotFoundPage = () => {
-
-
 	const portalElement = document.getElementById("notfound");
 
 	return (
@@ -12,7 +10,7 @@ const NotFoundPage = () => {
 			<div className="max-w-max mx-auto">
 				<main className="sm:flex">
 					<Card padding={true} flex={true}>
-						<p className="text-4xl font-extrabold text-indigo-600 dark:text-indigo-200 sm:text-5xl">404</p>
+						<p className="text-4xl font-extrabold text-indigo-600 dark:text-indigo-300 sm:text-5xl">404</p>
 						<div className="sm:ml-6">
 							<div className="sm:border-l sm:border-gray-200 sm:pl-6">
 								<h1 className="text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight sm:text-5xl">Page not found</h1>
