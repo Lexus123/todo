@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import Notification from "./components/notification/Notification";
 import Layout from "./components/layout/Layout";
 import { Redirect, Route, Switch } from "react-router-dom";
@@ -11,9 +11,16 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 const App = () => {
 	const showNotification = useSelector(state => state.notifications.show);
+	const theme = useSelector(state => state.themes.theme);
+
+	useEffect(() => {
+		document.documentElement.removeAttribute("class");
+		document.documentElement.classList.add(theme);
+	}, [theme]);
 
 	return (
 		<Layout title="Todo list">
+			{/* <Loading /> */}
 			<Suspense fallback={<Loading />}>
 				<Switch>
 					<Route path="/" exact>

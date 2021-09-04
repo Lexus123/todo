@@ -3,7 +3,7 @@ import { todosActions } from '../../store/todos';
 import { notificationsActions } from '../../store/notifications';
 import { Fragment, useEffect, useState } from "react";
 
-const Form = (props) => {
+const Form = () => {
 	const dispatch = useDispatch();
 
 	// Setup state management
