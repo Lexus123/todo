@@ -18,7 +18,6 @@ const todosSlice = createSlice({
 			state.todos.push(action.payload);
 		},
 		completeTodo(state, action) {
-			console.log(action.payload);
 			state.todos = state.todos.map(todo => todo.id === action.payload ? { ...todo, completed: true } : todo);
 		},
 		deleteTodo(state, action) {
