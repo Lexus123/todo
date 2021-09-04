@@ -2,7 +2,7 @@ import { ChevronDoubleLeftIcon } from '@heroicons/react/outline';
 import { Disclosure, Switch } from '@headlessui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { themesActions } from '../../store/themes';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ')
@@ -12,6 +12,10 @@ const Header = (props) => {
 	const dispatch = useDispatch();
 
 	const theme = useSelector(state => state.themes.theme);
+
+	const location = useLocation();
+
+	const isHomePage = location.pathname === "/todos";
 
 	const changeThemeHandler = () => {
 		dispatch(themesActions.toggleTheme());
@@ -26,7 +30,7 @@ const Header = (props) => {
 						<div className="flex-1 flex justify-between">
 							<Link to="/" replace>
 								<div className="flex items-center">
-									<ChevronDoubleLeftIcon className="h-7 w-7 text-white mr-2" />
+									{!isHomePage && <ChevronDoubleLeftIcon className="h-7 w-7 text-white mr-2" />}
 									<h1 className="text-3xl font-bold text-white">{props.title}</h1>
 								</div>
 							</Link>

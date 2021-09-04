@@ -2,7 +2,7 @@ import Card from '../ui/Card';
 
 const Loading = () => {
 	return (
-		<Card padding={true}>
+		<Card padding={true} flex={false}>
 			Loading...
 		</Card>
 	);

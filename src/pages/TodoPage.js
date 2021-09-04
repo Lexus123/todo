@@ -17,7 +17,7 @@ const TodoPage = () => {
 
 	return (
 		<Fragment>
-			<Card padding={true}>
+			<Card padding={true} flex={false}>
 				Ik ben je moeder
 			</Card>
 			<Link className='btn--flat' to={`${match.url}/comments`}>

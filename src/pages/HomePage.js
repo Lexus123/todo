@@ -35,14 +35,14 @@ const HomePage = () => {
 
 	return (
 		<Fragment>
-			<Card padding={true}>
+			<Card padding={true} flex={false}>
 				<Form />
 			</Card>
-			<Card padding={true}>
+			<Card padding={true} flex={false}>
 				<SearchSort searchValue={searchText} />
 			</Card>
 			{!hasTodos && <Empty />}
-			<Card padding={false}>
+			<Card padding={false} flex={false}>
 				<TodoList todos={searchedTodos} />
 			</Card>
 		</Fragment>
