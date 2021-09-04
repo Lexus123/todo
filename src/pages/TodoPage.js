@@ -1,30 +1,53 @@
 import { useSelector } from 'react-redux';
-import { Fragment } from "react";
-import { Link, useParams, useRouteMatch } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Card from '../components/ui/Card';
 
 const TodoPage = () => {
 	const todos = useSelector(state => state.todos.todos);
 
 	const params = useParams();
-	const match = useRouteMatch();
 
 	const todo = todos.find(todo => todo.id.toString() === params.todoId);
 
 	if (!todo) {
-		return <p>No todo found!</p>
+		return (
+			<Card padding={true} flex={false}>
+				<p className="text-gray-900 dark:text-white">No todo found!</p>
+			</Card>
+		);
 	}
 
+	const createdAtDate = new Date(0);
+	createdAtDate.setUTCSeconds(todo.createdAt / 1000).toLocaleString();
+	const cDate = createdAtDate.toLocaleString();
+
+
+	const nowDate = Date.now();
+	const elapsed = nowDate - todo.createdAt;
+	var hoursElapsed = Math.floor(elapsed / 1000 / 3600);
+
 	return (
-		<Fragment>
-			<Card padding={true} flex={false}>
-				Ik ben je moeder
-			</Card>
-			<Link className='btn--flat' to={`${match.url}/comments`}>
-				Show comments
-			</Link>
-			<p>{todo.text}</p>
-		</Fragment>
+		<Card padding={true} flex={false}>
+			<h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">{todo.text}</h3>
+			<dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+				<div className="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+					<dt className="text-sm font-medium text-gray-500 truncate">Afgerond</dt>
+					<dd className="mt-1 text-2xl font-semibold text-gray-900">{todo.completed ? "Ja" : "Nee"}</dd>
+				</div>
+				<div className="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+					<dt className="text-sm font-medium text-gray-500 truncate">Toegevoegd op</dt>
+					<dd className="mt-1 text-2xl font-semibold text-gray-900">{cDate}</dd>
+				</div>
+				<div className="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+					<dt className="text-sm font-medium text-gray-500 truncate">Uren verstreken</dt>
+					<dd className="mt-1 text-2xl font-semibold text-gray-900">{hoursElapsed}</dd>
+				</div>
+			</dl>
+		</Card>
+		// {/* <Link className='btn--flat' to={`${match.url}/comments`}>
+		// 	Show comments
+		// </Link>
+		// <p>{todo.text}</p> */}
 	);
 };
 
