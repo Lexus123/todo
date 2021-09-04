@@ -4,6 +4,7 @@ import Layout from "./components/layout/Layout";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Loading from "./components/loading/Loading";
+import FadeIn from "react-fade-in";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const TodoPage = lazy(() => import("./pages/TodoPage"));
