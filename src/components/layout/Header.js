@@ -1,3 +1,4 @@
+import { ChevronDoubleLeftIcon } from '@heroicons/react/outline';
 import { Disclosure, Switch } from '@headlessui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { themesActions } from '../../store/themes';
@@ -19,10 +20,13 @@ const Header = (props) => {
 		<div className="bg-gradient-to-r from-indigo-500 via-indigo-500 to-indigo-600 dark:from-indigo-400 dark:via-indigo-400 dark:to-indigo-500 pb-32">
 			<label htmlFor='dark-mode' className="sr-only">Dark mode</label>
 			<Disclosure as="nav" className="bg-gradient-to-r from-indigo-500 via-indigo-500 to-indigo-600  dark:from-indigo-400 dark:via-indigo-400 dark:to-indigo-500">
-				<div className="max-w-3xl mx-auto px-2 sm:px-4 lg:px-8">
+				<div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="relative h-32 flex items-center justify-between">
 						<div className="flex-1 flex justify-between">
-							<h1 className="text-3xl font-bold text-white">{props.title}</h1>
+							<div className="flex items-center">
+								<ChevronDoubleLeftIcon className="h-7 w-7 text-white mr-2" />
+								<h1 className="text-3xl font-bold text-white">{props.title}</h1>
+							</div>
 							<Switch.Group as="div" className="flex items-center">
 								<Switch
 									checked={theme === "dark"}

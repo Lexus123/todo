@@ -46,7 +46,7 @@ const SearchSort = (props) => {
 			<label htmlFor="search" className="sr-only">
 				Search
 			</label>
-			<div className="relative text-gray-400 dark:text-gray-400 focus-within:text-gray-600 dark:focus-within:text-gray-200 w-full sm:mr-2 md:mr-5 lg:mr-5">
+			<div className="relative text-gray-400 dark:text-gray-400 focus-within:text-gray-600 dark:focus-within:text-gray-200 w-full mr-2 sm:mr-2 md:mr-5 lg:mr-5">
 				<div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
 					<SearchIcon className="h-5 w-5" aria-hidden="true" />
 				</div>
