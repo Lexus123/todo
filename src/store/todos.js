@@ -17,8 +17,12 @@ const todosSlice = createSlice({
 		addTodo(state, action) {
 			state.todos.push(action.payload);
 		},
-		removeTodo(state, action) {
-
+		completeTodo(state, action) {
+			console.log(action.payload);
+			state.todos = state.todos.map(todo => todo.id === action.payload ? { ...todo, completed: true } : todo);
+		},
+		deleteTodo(state, action) {
+			state.todos = state.todos.filter(todo => todo.id !== action.payload);
 		},
 		setSearchText(state, action) {
 			state.searchText = action.payload;
