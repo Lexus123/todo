@@ -11,6 +11,7 @@ import Dutch from "./lang/nl.json";
 const TodosPage = lazy(() => import("./pages/TodosPage"));
 const TodoPage = lazy(() => import("./pages/TodoPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+const SettingsPage = lazy(() => import("./pages/SettingsPage"));
 
 const App = () => {
 	const showNotification = useSelector(state => state.notifications.show);
@@ -46,6 +47,9 @@ const App = () => {
 						</Route>
 						<Route path='/todos/:todoId'>
 							<TodoPage />
+						</Route>
+						<Route path="/settings" exact>
+							<SettingsPage />
 						</Route>
 						<Route path="*">
 							<NotFoundPage />
