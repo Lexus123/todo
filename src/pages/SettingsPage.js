@@ -2,13 +2,27 @@ import Card from "../components/ui/Card";
 import { Switch } from '@headlessui/react'
 import { useDispatch, useSelector } from "react-redux";
 import { themesActions } from "../store/themes";
+import { localesActions } from "../store/locales";
 import { Fragment } from "react";
-import { Menu, Transition } from '@headlessui/react'
+import { Menu } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ')
 }
+
+const languages = [
+	{
+		key: 1,
+		name: "English",
+		locale: "en"
+	},
+	{
+		key: 2,
+		name: "Dutch",
+		locale: "nl"
+	}
+]
 
 const SettingsPage = () => {
 	const dispatch = useDispatch();
@@ -17,6 +31,10 @@ const SettingsPage = () => {
 
 	const changeThemeHandler = () => {
 		dispatch(themesActions.toggleTheme());
+	};
+
+	const changeLocaleHandler = (locale) => {
+		dispatch(localesActions.setLocale(locale));
 	};
 
 	return (
@@ -58,54 +76,29 @@ const SettingsPage = () => {
 							Keuze uit twee talen: Engels en Nederlands.
 						</span>
 					</span>
-					<Menu as="div" className="relative inline-block text-left">
-						<div>
-							<Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-								Options
-								<ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
-							</Menu.Button>
-						</div>
-
-						<Transition
-							as={Fragment}
-							enter="transition ease-out duration-100"
-							enterFrom="transform opacity-0 scale-95"
-							enterTo="transform opacity-100 scale-100"
-							leave="transition ease-in duration-75"
-							leaveFrom="transform opacity-100 scale-100"
-							leaveTo="transform opacity-0 scale-95"
-						>
-							<Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-								<div className="py-1">
-									<Menu.Item>
+					<Menu as="div" className="relative">
+						<Menu.Button className="w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-700 dark:hover:border-gray-900 rounded-md shadow-sm px-4 py-2 inline-flex justify-center text-sm font-medium text-gray-700 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-indigo-400">
+							Sort
+							<ChevronDownIcon className="ml-2.5 -mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+						</Menu.Button>
+						<Menu.Items className="origin-top-right z-10 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none">
+							<div className="py-1">
+								{languages.map(language =>
+									<Menu.Item key={language.key} onClick={() => changeLocaleHandler(language.locale)}>
 										{({ active }) => (
-											<a
-												href="#"
+											<div
 												className={classNames(
-													active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-													'block px-4 py-2 text-sm'
+													active ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-200' : 'text-gray-700 dark:text-gray-300',
+													'flex justify-between px-4 py-2 text-sm'
 												)}
 											>
-												Account settings
-											</a>
+												<p>{language.name}</p>
+											</div>
 										)}
 									</Menu.Item>
-									<Menu.Item>
-										{({ active }) => (
-											<a
-												href="#"
-												className={classNames(
-													active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-													'block px-4 py-2 text-sm'
-												)}
-											>
-												Support
-											</a>
-										)}
-									</Menu.Item>
-								</div>
-							</Menu.Items>
-						</Transition>
+								)}
+							</div>
+						</Menu.Items>
 					</Menu>
 				</div>
 			</Card>
