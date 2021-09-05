@@ -1,76 +1,68 @@
-import { Fragment, useEffect, useState } from "react";
-import SearchSort, { sorts } from './components/searchsort/SearchSort';
-import Empty from './components/ui/Empty';
-import Header from "./components/layout/Header";
+import { lazy, Suspense, useEffect } from "react";
 import Notification from "./components/notification/Notification";
-import Structure from "./components/layout/Structure";
-import Card from "./components/ui/Card";
-import Form from "./components/form/Form";
-import Todos from "./components/todo/Todos";
-import Main from "./components/layout/Main";
+import Layout from "./components/layout/Layout";
+import { Redirect, Route, Switch } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import Loading from "./components/loading/Loading";
+import { FormattedMessage, IntlProvider } from "react-intl";
+import English from "./lang/en.json";
+import Dutch from "./lang/nl.json";
+
+const TodosPage = lazy(() => import("./pages/TodosPage"));
+const TodoPage = lazy(() => import("./pages/TodoPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+const SettingsPage = lazy(() => import("./pages/SettingsPage"));
 
 const App = () => {
-	const [show, setShow] = useState(false);
-	const [todos, setTodos] = useState([]);
-	const [searchedTodos, setSearchedTodos] = useState([]);
-	const [hasTodos, setHasTodos] = useState(false);
-	const [searchText, setSearchText] = useState("");
-	const [sort, setSort] = useState(sorts[0]);
+	const showNotification = useSelector(state => state.notifications.show);
+	const theme = useSelector(state => state.themes.theme);
+	const locale = useSelector(state => state.locales.locale);
 
 	useEffect(() => {
-		setHasTodos(searchedTodos.length > 0);
-	}, [searchedTodos]);
+		document.documentElement.removeAttribute("class");
+		document.documentElement.classList.add(theme);
+	}, [theme]);
 
-	useEffect(() => {
-		setSearchedTodos(todos);
-	}, [todos]);
+	let languagePack;
+	if (locale.toLowerCase().includes("nl")) {
+		languagePack = Dutch;
+	} else {
+		languagePack = English;
+	}
 
-	useEffect(() => {
-		setSearchedTodos(todos.filter((t) => t.text.toLowerCase().includes(searchText.toLowerCase())));
-	}, [todos, searchText]);
-
-	useEffect(() => {
-		setTodos(ts => {
-			if (sort.key === 1) {
-				return [...ts].sort((a, b) => a.id > b.id ? 1 : -1);
-			}
-			if (sort.key === 2) {
-				return [...ts].sort((a, b) => a.id < b.id ? 1 : -1);
-			}
-			if (sort.key === 3) {
-				return [...ts].sort((a, b) => a.id < b.id ? 1 : -1);
-			}
-			if (sort.key === 4) {
-				return [...ts].sort((a, b) => a.id < b.id ? 1 : -1);
-			}
-		});
-	}, [sort]);
-
-	const addTodo = (todo) => {
-		setShow(true);
-		setSearchText("");
-		setTodos(previousTodos => [...previousTodos, todo]);
-	};
+	const title = (
+		<FormattedMessage
+			id="app.title"
+			description="The title of the entire page"
+			defaultMessage="Todo list"
+		/>
+	);
 
 	return (
-		<Fragment>
-			<Structure setShow={setShow}>
-				<Header title="Todo list" />
-				<Main>
-					<Card padding={true}>
-						<Form addTodo={addTodo} />
-					</Card>
-					<Card padding={true}>
-						<SearchSort onSearch={setSearchText} searchValue={searchText} onClickSortHandler={setSort} />
-					</Card>
-					{!hasTodos && <Empty />}
-					<Card padding={false}>
-						<Todos todos={searchedTodos} />
-					</Card>
-				</Main>
-			</Structure>
-			<Notification show={show} setShow={setShow} />
-		</Fragment>
+		<IntlProvider locale={locale} messages={languagePack}>
+			<Layout title={title}>
+				<Suspense fallback={<Loading />}>
+					<Switch>
+						<Route path="/" exact>
+							<Redirect to="todos" />
+						</Route>
+						<Route path="/todos" exact>
+							<TodosPage />
+						</Route>
+						<Route path='/todos/:todoId'>
+							<TodoPage />
+						</Route>
+						<Route path="/settings" exact>
+							<SettingsPage />
+						</Route>
+						<Route path="*">
+							<NotFoundPage />
+						</Route>
+					</Switch>
+				</Suspense>
+				<Notification show={showNotification} />
+			</Layout>
+		</IntlProvider>
 	);
 };
 
