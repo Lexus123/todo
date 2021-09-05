@@ -19,7 +19,7 @@ const languages = [
 	},
 	{
 		key: 2,
-		name: "Dutch",
+		name: "Nederlands",
 		locale: "nl"
 	}
 ]
@@ -28,6 +28,9 @@ const SettingsPage = () => {
 	const dispatch = useDispatch();
 
 	const theme = useSelector(state => state.themes.theme);
+	const locale = useSelector(state => state.locales.locale);
+
+	const language = languages.find(lang => locale.toLowerCase().includes(lang.locale));
 
 	const changeThemeHandler = () => {
 		dispatch(themesActions.toggleTheme());
@@ -78,7 +81,7 @@ const SettingsPage = () => {
 					</span>
 					<Menu as="div" className="relative">
 						<Menu.Button className="w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-700 dark:hover:border-gray-900 rounded-md shadow-sm px-4 py-2 inline-flex justify-center text-sm font-medium text-gray-700 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-indigo-400">
-							Sort
+							{language.name}
 							<ChevronDownIcon className="ml-2.5 -mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
 						</Menu.Button>
 						<Menu.Items className="origin-top-right z-10 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none">
