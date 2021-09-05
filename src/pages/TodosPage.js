@@ -6,7 +6,7 @@ import Empty from "../components/ui/Empty";
 import TodoList from "../components/todo/TodoList";
 import { useSelector } from 'react-redux';
 
-const HomePage = () => {
+const TodosPage = () => {
 	// Get some store values
 	const searchText = useSelector(state => state.todos.searchText);
 	const sortMethod = useSelector(state => state.todos.sortMethod);
@@ -49,4 +49,4 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export default TodosPage;

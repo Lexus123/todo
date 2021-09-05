@@ -15,7 +15,7 @@ const Header = (props) => {
 
 	const location = useLocation();
 
-	const isHomePage = location.pathname === "/todos";
+	const isTodosPage = location.pathname === "/todos";
 
 	const changeThemeHandler = () => {
 		dispatch(themesActions.toggleTheme());
@@ -30,7 +30,7 @@ const Header = (props) => {
 						<div className="flex-1 flex justify-between">
 							<Link to="/" replace>
 								<div className="flex items-center">
-									{!isHomePage && <ChevronDoubleLeftIcon className="h-7 w-7 text-white mr-2" />}
+									{!isTodosPage && <ChevronDoubleLeftIcon className="h-7 w-7 text-white mr-2" />}
 									<h1 className="text-3xl font-bold text-white">{props.title}</h1>
 								</div>
 							</Link>
