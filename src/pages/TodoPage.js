@@ -1,3 +1,4 @@
+import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 import Card from '../components/ui/Card';
@@ -12,7 +13,16 @@ const TodoPage = () => {
 	if (!todo) {
 		return (
 			<Card padding={true} flex={false}>
-				<p className="text-gray-900 dark:text-white">No todo found!</p>
+				<p className="text-gray-900 dark:text-white">
+					<FormattedMessage
+						id="pages.todopage.notfound"
+						description="This tells the user the todo was not found"
+						defaultMessage="No todo found for ID {todoId}"
+						values={{
+							todoId: params.todoId
+						}}
+					/>
+				</p>
 			</Card>
 		);
 	}
@@ -20,7 +30,6 @@ const TodoPage = () => {
 	// const createdAtDate = new Date(0);
 	// createdAtDate.setUTCSeconds(todo.createdAt / 1000).toLocaleString();
 	// const cDate = createdAtDate.toLocaleString();
-
 
 	// const nowDate = Date.now();
 	// const elapsed = nowDate - todo.createdAt;

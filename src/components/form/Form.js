@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { todosActions } from '../../store/todos';
 import { notificationsActions } from '../../store/notifications';
 import { Fragment, useEffect, useState } from "react";
+import { FormattedMessage } from 'react-intl';
 
 const Form = () => {
 	const dispatch = useDispatch();
@@ -47,9 +48,21 @@ const Form = () => {
 
 	return (
 		<Fragment>
-			<h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">Add another todo</h3>
+			<h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">
+				<FormattedMessage
+					id="components.form.title"
+					description="The title of the form"
+					defaultMessage="Add another todo"
+				/>
+			</h3>
 			<div className="mt-2 max-w-xl text-sm text-gray-500 dark:text-gray-300">
-				<p>Just when you thought your todo list couldn't get any longer, you came up with something else!</p>
+				<p>
+					<FormattedMessage
+						id="components.form.description"
+						description="The description of the form"
+						defaultMessage="Just when you thought your todo list couldn't get any longer, you came up with something else!"
+					/>
+				</p>
 			</div>
 			<form className="mt-5 sm:flex sm:items-center" onSubmit={onSubmitHandler}>
 				<div className="w-full sm:max-w-xs">
@@ -72,7 +85,11 @@ const Form = () => {
 					disabled={isEmpty}
 					className="mt-3 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-indigo-600 dark:bg-indigo-500 hover:bg-indigo-700 dark:hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-2 md:ml-5 sm:w-auto sm:text-sm disabled:opacity-50 dark:disabled:opacity-60"
 				>
-					Add todo
+					<FormattedMessage
+						id="components.form.button"
+						description="The text inside the button to add a todo"
+						defaultMessage="Add todo"
+					/>
 				</button>
 			</form>
 		</Fragment>

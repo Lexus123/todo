@@ -2,12 +2,13 @@ import { useDispatch } from 'react-redux';
 import { todosActions } from '../../store/todos';
 import { Menu } from '@headlessui/react'
 import { ChevronDownIcon, SearchIcon, SortAscendingIcon } from '@heroicons/react/solid'
+import { FormattedMessage, useIntl } from 'react-intl';
 
 const classNames = (...classes) => {
 	return classes.filter(Boolean).join(' ')
 }
 
-export const sorts = [
+const sorts = [
 	{
 		key: 1,
 		on: "Name",
@@ -41,6 +42,10 @@ const SearchSort = (props) => {
 		dispatch(todosActions.setSortMethod(sort));
 	};
 
+	const placeholder = useIntl().formatMessage({ id: "components.searchsort.search.placeholder" });
+
+	console.log(placeholder);
+
 	return (
 		<div className="flex items-center justify-between">
 			<label htmlFor="search" className="sr-only">
@@ -53,7 +58,7 @@ const SearchSort = (props) => {
 				<input
 					id="search"
 					className="block w-full bg-white dark:bg-gray-700 py-2 pl-10 pr-3 border-gray-300 dark:border-transparent rounded-md leading-5 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 dark:focus:ring-offset-indigo-400 focus:ring-white dark:focus:ring-transparent focus:border-white sm:text-sm"
-					placeholder="Search"
+					placeholder={placeholder}
 					type="search"
 					name="search"
 					onChange={searchHandler}
@@ -63,7 +68,11 @@ const SearchSort = (props) => {
 			<Menu as="div" className="relative">
 				<Menu.Button className="w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-700 dark:hover:border-gray-900 rounded-md shadow-sm px-4 py-2 inline-flex justify-center text-sm font-medium text-gray-700 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-indigo-400">
 					<SortAscendingIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
-					Sort
+					<FormattedMessage
+						id="components.searchsort.sort.button"
+						description="The text of the sort button"
+						defaultMessage="Sort"
+					/>
 					<ChevronDownIcon className="ml-2.5 -mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
 				</Menu.Button>
 				<Menu.Items className="origin-top-right z-10 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none">
@@ -77,8 +86,17 @@ const SearchSort = (props) => {
 											'flex justify-between px-4 py-2 text-sm'
 										)}
 									>
-										<b>{sort.on}</b>
-										<p>{sort.direction}</p>
+										<b>
+											<FormattedMessage
+												id={`components.searchsort.sorts.${sort.key}.on`}
+												description="A way of sorting the todo list"
+											/>
+										</b>
+										<p>
+											<FormattedMessage
+												id={`components.searchsort.sorts.${sort.key}.direction`}
+												description="A way of sorting the todo list"
+											/></p>
 									</div>
 								)}
 							</Menu.Item>

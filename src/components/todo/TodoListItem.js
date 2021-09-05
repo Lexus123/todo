@@ -1,5 +1,6 @@
 import { CheckCircleIcon, TrashIcon } from '@heroicons/react/outline';
 import { CheckIcon } from '@heroicons/react/solid';
+import { FormattedMessage } from 'react-intl';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { todosActions } from '../../store/todos';
@@ -53,7 +54,11 @@ const TodoListItem = (props) => {
 							<div className="mt-2 flex">
 								<div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
 									<p>
-										Added on <time dateTime={props.todo.createdAt}>{dateTime}</time>
+										<FormattedMessage
+											id="components.todo.added"
+											description="Prefixed text to the date the todo was added"
+											defaultMessage="Added on "
+										/><time dateTime={props.todo.createdAt}>{dateTime}</time>
 									</p>
 								</div>
 							</div>

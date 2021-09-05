@@ -30,13 +30,17 @@ const App = () => {
 		languagePack = English;
 	}
 
+	const title = (
+		<FormattedMessage
+			id="app.title"
+			description="The title of the entire page"
+			defaultMessage="Todo list"
+		/>
+	);
+
 	return (
 		<IntlProvider locale={locale} messages={languagePack}>
-			<Layout title="Todo list">
-				<FormattedMessage
-					id="hi"
-					defaultMessage="Edit the files and save to reload"
-				/>
+			<Layout title={title}>
 				<Suspense fallback={<Loading />}>
 					<Switch>
 						<Route path="/" exact>

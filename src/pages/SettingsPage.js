@@ -6,6 +6,7 @@ import { localesActions } from "../store/locales";
 import { Fragment } from "react";
 import { Menu } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import { FormattedMessage } from "react-intl";
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ')
@@ -46,10 +47,18 @@ const SettingsPage = () => {
 				<Switch.Group as="div" className="flex items-center justify-between mb-7 pb-6 border-b-2 border-gray-100 dark:border-gray-700">
 					<span className="flex-grow flex flex-col">
 						<Switch.Label as="span" className="text-sm font-medium text-gray-900 dark:text-white" passive>
-							Dark mode
+							<FormattedMessage
+								id="pages.settingspage.darkmode.title"
+								description="The title of the dark mode setting"
+								defaultMessage="Dark mode"
+							/>
 						</Switch.Label>
 						<Switch.Description as="span" className="text-sm text-gray-500 dark:text-gray-400">
-							Dark mode is echt super prettig voor je ogen. Werkt alleen als je ogen hebt.
+							<FormattedMessage
+								id="pages.settingspage.darkmode.description"
+								description="The description of the dark mode setting"
+								defaultMessage="The is awesome for your eyes, but it requires eyes."
+							/>
 						</Switch.Description>
 					</span>
 					<Switch
@@ -73,10 +82,18 @@ const SettingsPage = () => {
 				<div className="flex items-center justify-between">
 					<span className="flex-grow flex flex-col">
 						<span className="text-sm font-medium text-gray-900 dark:text-white">
-							Language
+							<FormattedMessage
+								id="pages.settingspage.language.title"
+								description="The title of the language setting"
+								defaultMessage="Language"
+							/>
 						</span>
 						<span className="text-sm text-gray-500 dark:text-gray-400">
-							Keuze uit twee talen: Engels en Nederlands.
+							<FormattedMessage
+								id="pages.settingspage.language.description"
+								description="The description of the language setting"
+								defaultMessage="Choose between two languages: Dutch and English."
+							/>
 						</span>
 					</span>
 					<Menu as="div" className="relative">
