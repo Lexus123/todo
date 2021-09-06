@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { todosActions } from '../../store/todos';
 import { notificationsActions } from '../../store/notifications';
 import { Fragment, useEffect, useState } from "react";
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 const Form = () => {
 	const dispatch = useDispatch();
@@ -46,6 +46,8 @@ const Form = () => {
 		setTodoText("");
 	}
 
+	const placeholder = useIntl().formatMessage({ id: "components.form.placeholder" });
+
 	return (
 		<Fragment>
 			<h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">
@@ -74,7 +76,7 @@ const Form = () => {
 						name="todo"
 						id="todo"
 						className="dark:bg-gray-700 dark:placeholder-gray-400 dark:text-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:focus:border-indigo-400 block w-full sm:text-sm border-gray-300 dark:border-transparent rounded-md"
-						placeholder="Get delicious food"
+						placeholder={placeholder}
 						autoComplete="none"
 						onChange={onChangeTodo}
 						value={todoText}

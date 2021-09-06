@@ -44,8 +44,6 @@ const SearchSort = (props) => {
 
 	const placeholder = useIntl().formatMessage({ id: "components.searchsort.search.placeholder" });
 
-	console.log(placeholder);
-
 	return (
 		<div className="flex items-center justify-between">
 			<label htmlFor="search" className="sr-only">

@@ -2,6 +2,7 @@
 	"components.form.title": "Voeg een todo toe",
 	"components.form.description": "Net wanneer je denkt dat je todo lijst niet groter wordt, bedacht je je weer wat nieuws!",
 	"components.form.button": "Todo toevoegen",
+	"components.form.placeholder": "Lekker eten halen",
 	"components.layout.header.settings": "Instellingen",
 	"components.notification.title": "Succesvol opgeslagen!",
 	"components.notification.description": "Je kunt nu beginnen met het uitstellen van deze belangrijke todo.",

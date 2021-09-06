@@ -122,6 +122,25 @@ const SettingsPage = () => {
 					</Menu>
 				</div>
 			</Card>
+
+			<Card padding={true} flex={false}>
+				<span className="flex-grow flex flex-col">
+					<span className="text-sm font-medium text-gray-900 dark:text-white">
+						<FormattedMessage
+							id="pages.settingspage.language.title"
+							description="The title of the language setting"
+							defaultMessage="Language"
+						/>
+					</span>
+					<span className="text-sm text-gray-500 dark:text-gray-400">
+						<FormattedMessage
+							id="pages.settingspage.language.description"
+							description="The description of the language setting"
+							defaultMessage="Choose between two languages: Dutch and English."
+						/>
+					</span>
+				</span>
+			</Card>
 		</Fragment>
 	);
 };

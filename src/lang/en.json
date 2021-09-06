@@ -2,6 +2,7 @@
 	"components.form.title": "Add another todo",
 	"components.form.description": "Just when you thought your todo list couldn't get any longer, you came up with something else!",
 	"components.form.button": "Add todo",
+	"components.form.placeholder": "Get delicious food",
 	"components.layout.header.settings": "Settings",
 	"components.notification.title": "Successfully saved!",
 	"components.notification.description": "You can now start procrastinating this very important todo.",
