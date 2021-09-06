@@ -1,7 +1,8 @@
 {
 	"components.form.title": "Voeg een todo toe",
-	"components.form.description": "Net wanneer je denkt dat je todo lijst niet groter wordt, bedacht je je weer wat nieuws!",
+	"components.form.description": "Net wanneer je dacht dat je todo lijst niet groter kon worden, bedacht je je weer wat nieuws!",
 	"components.form.button": "Todo toevoegen",
+	"components.form.placeholder": "Lekker eten halen",
 	"components.layout.header.settings": "Instellingen",
 	"components.notification.title": "Succesvol opgeslagen!",
 	"components.notification.description": "Je kunt nu beginnen met het uitstellen van deze belangrijke todo.",
@@ -26,5 +27,9 @@
 	"pages.settingspage.language.title": "Taal",
 	"pages.settingspage.language.description": "Kies tussen twee talen: Engels en Nederlands.",
 	"pages.todopage.notfound": "Geen todo gevonden voor ID {todoId}",
+	"pages.todopage.description": "Een klein beetje informatie over de todo.",
+	"pages.todopage.added": "Toegevoegd op",
+	"pages.todopage.timepassed.title": "Tijd verstreken",
+	"pages.todopage.timepassed.minutes": "minuten",
 	"app.title": "Todo lijst"
 }

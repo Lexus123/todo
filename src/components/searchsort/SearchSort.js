@@ -44,8 +44,6 @@ const SearchSort = (props) => {
 
 	const placeholder = useIntl().formatMessage({ id: "components.searchsort.search.placeholder" });
 
-	console.log(placeholder);
-
 	return (
 		<div className="flex items-center justify-between">
 			<label htmlFor="search" className="sr-only">
@@ -75,7 +73,7 @@ const SearchSort = (props) => {
 					/>
 					<ChevronDownIcon className="ml-2.5 -mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
 				</Menu.Button>
-				<Menu.Items className="origin-top-right z-10 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none">
+				<Menu.Items className="origin-top-right z-10 absolute right-0 mt-2 w-80 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none">
 					<div className="py-1">
 						{sorts.map((sort) =>
 							<Menu.Item key={sort.key} onClick={() => sortHandler(sort)}>

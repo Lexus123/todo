@@ -4,28 +4,14 @@ import { FormattedMessage } from 'react-intl';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { todosActions } from '../../store/todos';
-
-const getDateTime = (datetime) => {
-	const timeOptions = {
-		weekday: 'long',
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric',
-		hour: '2-digit',
-		hour12: false,
-		minute: '2-digit',
-		second: '2-digit'
-	};
-
-	return datetime.toLocaleTimeString(undefined, timeOptions);
-};
+import { getDateTime } from '../../utils/dates';
 
 const TodoListItem = (props) => {
 	const dispatch = useDispatch();
 
 	const history = useHistory();
 
-	const dateTime = getDateTime(new Date(props.todo.createdAt));
+	const dateTime = getDateTime(new Date(props.todo.createdAt), true);
 
 	const checkmarkClases = props.todo.completed ? "h-6 w-6 text-green-400" : "h-6 w-6 text-gray-300 dark:text-gray-400";
 
