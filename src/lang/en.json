@@ -26,6 +26,8 @@
 	"pages.settingspage.darkmode.description": "The is awesome for your eyes, but it requires eyes.",
 	"pages.settingspage.language.title": "Language",
 	"pages.settingspage.language.description": "Choose between two languages: Dutch and English.",
+	"pages.settingspage.about.title": "About",
+	"pages.settingspage.about.description": "Information about the tools used to build this app.",
 	"pages.todopage.notfound": "No todo found for ID {todoId}",
 	"pages.todopage.description": "A little bit of information about the todo.",
 	"pages.todopage.added": "Added on",

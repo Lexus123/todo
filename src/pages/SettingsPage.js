@@ -123,23 +123,90 @@ const SettingsPage = () => {
 				</div>
 			</Card>
 
-			<Card padding={true} flex={false}>
-				<span className="flex-grow flex flex-col">
-					<span className="text-sm font-medium text-gray-900 dark:text-white">
+			<Card padding={false} flex={false}>
+				<div className="px-4 py-5 sm:px-6">
+					<h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">
 						<FormattedMessage
-							id="pages.settingspage.language.title"
-							description="The title of the language setting"
-							defaultMessage="Language"
-						/>
-					</span>
-					<span className="text-sm text-gray-500 dark:text-gray-400">
+							id="pages.settingspage.about.title"
+							description="The about title of the about section"
+							defaultMessage="About"
+						/></h3>
+					<p className="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-400">
 						<FormattedMessage
-							id="pages.settingspage.language.description"
-							description="The description of the language setting"
-							defaultMessage="Choose between two languages: Dutch and English."
+							id="pages.settingspage.about.description"
+							description="The subtitle of the about section"
+							defaultMessage="Information about the tools used to build this app."
 						/>
-					</span>
-				</span>
+					</p>
+				</div>
+				<div className="border-t border-gray-200 dark:border-gray-600 px-4 py-5 sm:p-0">
+					<dl className="sm:divide-y sm:divide-gray-200 dark:divide-gray-600">
+						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Frontend framework
+							</dt>
+							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
+								React
+							</dd>
+						</div>
+						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Styling framework
+							</dt>
+							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
+								Tailwind (UI)
+							</dd>
+						</div>
+						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								State management
+							</dt>
+							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
+								Redux Toolkit
+							</dd>
+						</div>
+						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								i18n
+							</dt>
+							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
+								FormatJS (React Intl)
+							</dd>
+						</div>
+						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Persistent data
+							</dt>
+							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
+								Redux LocalStorage Simple
+							</dd>
+						</div>
+						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Routing
+							</dt>
+							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
+								React Router
+							</dd>
+						</div>
+						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Loading animation
+							</dt>
+							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
+								React Loader Spinner
+							</dd>
+						</div>
+						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+								Fade in animation
+							</dt>
+							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
+								React Fade In
+							</dd>
+						</div>
+					</dl>
+				</div>
 			</Card>
 		</Fragment>
 	);
