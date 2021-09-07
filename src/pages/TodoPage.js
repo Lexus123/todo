@@ -31,14 +31,6 @@ const TodoPage = () => {
 		);
 	}
 
-	// const createdAtDate = new Date(0);
-	// createdAtDate.setUTCSeconds(todo.createdAt / 1000).toLocaleString();
-	// const cDate = createdAtDate.toLocaleString();
-
-	// const nowDate = Date.now();
-	// const elapsed = nowDate - todo.createdAt;
-	// var hoursElapsed = Math.floor(elapsed / 1000 / 3600);
-
 	return (
 		<Card padding={false} flex={false}>
 			<div className="px-4 py-5 sm:px-6">

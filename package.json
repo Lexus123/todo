@@ -1,6 +1,6 @@
 {
-	"name": "incakeofemergency.nl",
-	"version": "0.1.0",
+	"name": "todo.lexvanderwerff.com",
+	"version": "1.1.0",
 	"private": true,
 	"dependencies": {
 		"@craco/craco": "^6.2.0",

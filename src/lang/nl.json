@@ -26,6 +26,8 @@
 	"pages.settingspage.darkmode.description": "Dit is geweldig voor je ogen, maar je hebt wel ogen nodig.",
 	"pages.settingspage.language.title": "Taal",
 	"pages.settingspage.language.description": "Kies tussen twee talen: Engels en Nederlands.",
+	"pages.settingspage.about.title": "Over",
+	"pages.settingspage.about.description": "Informatie over de tools die gebruikt zijn voor het bouwen van deze app.",
 	"pages.todopage.notfound": "Geen todo gevonden voor ID {todoId}",
 	"pages.todopage.description": "Een klein beetje informatie over de todo.",
 	"pages.todopage.added": "Toegevoegd op",
