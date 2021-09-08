@@ -10,10 +10,6 @@ const TodoPage = () => {
 	const todos = useSelector(state => state.todos.todos);
 	const todo = todos.find(todo => todo.id.toString() === params.todoId);
 
-	const createdDate = new Date(todo.createdAt);
-	const dateTime = getDateTime(createdDate, false);
-	const timePassed = getTimePassed(createdDate);
-
 	if (!todo) {
 		return (
 			<Card padding={true} flex={false}>
@@ -30,6 +26,10 @@ const TodoPage = () => {
 			</Card>
 		);
 	}
+
+	const createdDate = new Date(todo.createdAt);
+	const dateTime = getDateTime(createdDate, false);
+	const timePassed = getTimePassed(createdDate);
 
 	return (
 		<Card padding={false} flex={false}>
