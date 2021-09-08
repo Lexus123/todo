@@ -5,7 +5,7 @@ import { themesActions } from "../store/themes";
 import { localesActions } from "../store/locales";
 import { Fragment } from "react";
 import { Menu } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/solid'
+import { ChevronDownIcon, ExternalLinkIcon } from '@heroicons/react/solid'
 import { FormattedMessage } from "react-intl";
 
 function classNames(...classes) {
@@ -146,7 +146,7 @@ const SettingsPage = () => {
 								Frontend framework
 							</dt>
 							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								React
+								<a href="https://github.com/facebook/react" target="_blank" rel="noreferrer" className="flex items-center">React&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
 							</dd>
 						</div>
 						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -154,7 +154,7 @@ const SettingsPage = () => {
 								Styling framework
 							</dt>
 							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								Tailwind (UI)
+								<a href="https://tailwindui.com/" target="_blank" rel="noreferrer" className="flex items-center">Tailwind (UI)&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
 							</dd>
 						</div>
 						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -162,7 +162,7 @@ const SettingsPage = () => {
 								State management
 							</dt>
 							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								Redux Toolkit
+								<a href="https://github.com/reduxjs/redux-toolkit" target="_blank" rel="noreferrer" className="flex items-center">Redux Toolkit&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
 							</dd>
 						</div>
 						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -170,7 +170,7 @@ const SettingsPage = () => {
 								i18n
 							</dt>
 							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								FormatJS (React Intl)
+								<a href="https://github.com/formatjs/formatjs" target="_blank" rel="noreferrer" className="flex items-center">FormatJS (React Intl)&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
 							</dd>
 						</div>
 						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -178,7 +178,7 @@ const SettingsPage = () => {
 								Persistent data
 							</dt>
 							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								Redux LocalStorage Simple
+								<a href="https://github.com/kilkelly/redux-localstorage-simple" target="_blank" rel="noreferrer" className="flex items-center">Redux LocalStorage Simple&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
 							</dd>
 						</div>
 						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -186,7 +186,7 @@ const SettingsPage = () => {
 								Routing
 							</dt>
 							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								React Router
+								<a href="https://github.com/remix-run/react-router" target="_blank" rel="noreferrer" className="flex items-center">React Router&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
 							</dd>
 						</div>
 						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -194,7 +194,7 @@ const SettingsPage = () => {
 								Loading animation
 							</dt>
 							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								React Loader Spinner
+								<a href="https://github.com/mhnpd/react-loader-spinner" target="_blank" rel="noreferrer" className="flex items-center">React Loader Spinner&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
 							</dd>
 						</div>
 						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -202,7 +202,7 @@ const SettingsPage = () => {
 								Fade in animation
 							</dt>
 							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								React Fade In
+								<a href="https://github.com/gkaemmer/react-fade-in" target="_blank" rel="noreferrer" className="flex items-center">React Fade In&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
 							</dd>
 						</div>
 					</dl>
