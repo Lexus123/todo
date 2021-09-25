@@ -19,7 +19,7 @@ const App = () => {
 	const theme = useSelector(state => state.themes.theme);
 	const locale = useSelector(state => state.locales.locale);
 
-	// Handle dark/light mode
+	// Handle dark/light mode.
 	useEffect(() => {
 		document.documentElement.removeAttribute("class");
 		document.documentElement.classList.add(theme);
