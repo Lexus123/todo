@@ -8,6 +8,7 @@ import { FormattedMessage, IntlProvider } from "react-intl";
 import English from "./lang/en.json";
 import Dutch from "./lang/nl.json";
 
+// Lazy load the individual pages
 const TodosPage = lazy(() => import("./pages/TodosPage"));
 const TodoPage = lazy(() => import("./pages/TodoPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
@@ -18,6 +19,7 @@ const App = () => {
 	const theme = useSelector(state => state.themes.theme);
 	const locale = useSelector(state => state.locales.locale);
 
+	// Handle dark/light mode
 	useEffect(() => {
 		document.documentElement.removeAttribute("class");
 		document.documentElement.classList.add(theme);

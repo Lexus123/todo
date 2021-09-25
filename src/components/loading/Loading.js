@@ -8,9 +8,8 @@ const Loading = () => {
 	const color = theme === "light" ? "#373737" : "#EEEEEE";
 
 	return (
-		<Card padding={true} flex={false}>
+		<Card>
 			<div className="flex h-full w-full flex-col items-center">
-				{/* <p className="text-gray-900 dark:text-white mb-4">Loading...</p> */}
 				<Loader
 					type="TailSpin"
 					color={color}

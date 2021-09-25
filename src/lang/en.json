@@ -5,7 +5,7 @@
 	"components.form.placeholder": "Get delicious food",
 	"components.layout.header.settings": "Settings",
 	"components.notification.title": "Successfully saved!",
-	"components.notification.description": "You can now start procrastinating this very important todo.",
+	"components.notification.description": "You can now start to procrastinate this very important todo.",
 	"components.searchsort.search.placeholder": "Search",
 	"components.searchsort.sort.button": "Sort",
 	"components.searchsort.sorts.1.on": "Name",

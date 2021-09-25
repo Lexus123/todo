@@ -14,7 +14,7 @@ const Notification = (props) => {
 	};
 
 	return (
-		<>
+		<Fragment>
 			<div
 				aria-live="assertive"
 				className="fixed inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start"
@@ -67,7 +67,7 @@ const Notification = (props) => {
 					</Transition>
 				</div>
 			</div>
-		</>
+		</Fragment>
 	)
 }
 

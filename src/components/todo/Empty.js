@@ -1,6 +1,6 @@
 import { FormattedMessage } from "react-intl";
 
-export default function Empty() {
+const Empty = () => {
 	return (
 		<div className="text-center">
 			<svg className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -23,3 +23,5 @@ export default function Empty() {
 		</div>
 	);
 };
+
+export default Empty;

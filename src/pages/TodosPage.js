@@ -2,9 +2,10 @@ import { Fragment } from "react";
 import Card from "../components/ui/Card";
 import SearchSort from "../components/searchsort/SearchSort";
 import Form from "../components/form/Form";
-import Empty from "../components/ui/Empty";
+import Empty from "../components/todo/Empty";
 import TodoList from "../components/todo/TodoList";
 import { useSelector } from 'react-redux';
+import ListContainer from "../components/ui/ListContainer";
 
 const TodosPage = () => {
 	// Get some store values
@@ -35,16 +36,16 @@ const TodosPage = () => {
 
 	return (
 		<Fragment>
-			<Card padding={true} flex={false}>
+			<Card>
 				<Form />
 			</Card>
-			<Card padding={true} flex={false}>
+			<Card>
 				<SearchSort searchValue={searchText} />
 			</Card>
 			{!hasTodos && <Empty />}
-			<Card padding={false} flex={false}>
+			<ListContainer padding={false}>
 				<TodoList todos={searchedTodos} />
-			</Card>
+			</ListContainer>
 		</Fragment>
 	);
 };

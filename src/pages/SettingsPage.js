@@ -7,6 +7,8 @@ import { Fragment } from "react";
 import { Menu } from '@headlessui/react'
 import { ChevronDownIcon, ExternalLinkIcon } from '@heroicons/react/solid'
 import { FormattedMessage } from "react-intl";
+import ListContainer from "../components/ui/ListContainer";
+import DescriptionList from "../components/ui/DescriptionList";
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ')
@@ -22,6 +24,49 @@ const languages = [
 		key: 2,
 		name: "Nederlands",
 		locale: "nl"
+	}
+]
+
+const tools = [
+	{
+		title: "Frontend framework",
+		link: "https://github.com/facebook/react",
+		name: "React"
+	},
+	{
+		title: "Styling framework",
+		link: "https://tailwindui.com/",
+		name: "Tailwind (UI)"
+	},
+	{
+		title: "State management",
+		link: "https://github.com/reduxjs/redux-toolkit",
+		name: "Redux Toolkit"
+	},
+	{
+		title: "i18n",
+		link: "https://github.com/formatjs/formatjs",
+		name: "FormatJS (React Intl)"
+	},
+	{
+		title: "Persistent data",
+		link: "https://github.com/kilkelly/redux-localstorage-simple",
+		name: "Redux LocalStorage Simple"
+	},
+	{
+		title: "Routing",
+		link: "https://github.com/remix-run/react-router",
+		name: "React Router"
+	},
+	{
+		title: "Loading animation",
+		link: "https://github.com/mhnpd/react-loader-spinner",
+		name: "React Loader Spinner"
+	},
+	{
+		title: "Fade in animation",
+		link: "https://github.com/gkaemmer/react-fade-in",
+		name: "React Fade In"
 	}
 ]
 
@@ -43,7 +88,7 @@ const SettingsPage = () => {
 
 	return (
 		<Fragment>
-			<Card padding={true} flex={false}>
+			<Card>
 				<Switch.Group as="div" className="flex items-center justify-between mb-6 pb-6 border-b-2 border-gray-100 dark:border-gray-700">
 					<span className="flex-grow flex flex-col">
 						<Switch.Label as="span" className="text-sm font-medium text-gray-900 dark:text-white" passive>
@@ -123,7 +168,7 @@ const SettingsPage = () => {
 				</div>
 			</Card>
 
-			<Card padding={false} flex={false}>
+			<ListContainer>
 				<div className="px-4 py-5 sm:px-6">
 					<h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">
 						<FormattedMessage
@@ -140,74 +185,9 @@ const SettingsPage = () => {
 					</p>
 				</div>
 				<div className="border-t border-gray-200 dark:border-gray-600 px-4 py-5 sm:p-0">
-					<dl className="sm:divide-y sm:divide-gray-200 dark:divide-gray-600">
-						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
-								Frontend framework
-							</dt>
-							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								<a href="https://github.com/facebook/react" target="_blank" rel="noreferrer" className="flex items-center">React&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
-							</dd>
-						</div>
-						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
-								Styling framework
-							</dt>
-							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								<a href="https://tailwindui.com/" target="_blank" rel="noreferrer" className="flex items-center">Tailwind (UI)&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
-							</dd>
-						</div>
-						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
-								State management
-							</dt>
-							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								<a href="https://github.com/reduxjs/redux-toolkit" target="_blank" rel="noreferrer" className="flex items-center">Redux Toolkit&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
-							</dd>
-						</div>
-						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
-								i18n
-							</dt>
-							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								<a href="https://github.com/formatjs/formatjs" target="_blank" rel="noreferrer" className="flex items-center">FormatJS (React Intl)&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
-							</dd>
-						</div>
-						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
-								Persistent data
-							</dt>
-							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								<a href="https://github.com/kilkelly/redux-localstorage-simple" target="_blank" rel="noreferrer" className="flex items-center">Redux LocalStorage Simple&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
-							</dd>
-						</div>
-						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
-								Routing
-							</dt>
-							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								<a href="https://github.com/remix-run/react-router" target="_blank" rel="noreferrer" className="flex items-center">React Router&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
-							</dd>
-						</div>
-						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
-								Loading animation
-							</dt>
-							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								<a href="https://github.com/mhnpd/react-loader-spinner" target="_blank" rel="noreferrer" className="flex items-center">React Loader Spinner&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
-							</dd>
-						</div>
-						<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-							<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
-								Fade in animation
-							</dt>
-							<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-								<a href="https://github.com/gkaemmer/react-fade-in" target="_blank" rel="noreferrer" className="flex items-center">React Fade In&nbsp;<ExternalLinkIcon className="h-5 w-5 text-gray-800 dark:text-white" aria-hidden="true" /></a>
-							</dd>
-						</div>
-					</dl>
+					<DescriptionList descriptions={tools} />
 				</div>
-			</Card>
+			</ListContainer>
 		</Fragment>
 	);
 };

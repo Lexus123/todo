@@ -7,7 +7,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 const Form = () => {
 	const dispatch = useDispatch();
 
-	// Setup state management
+	// Setup local state management
 	const [todoText, setTodoText] = useState("");
 	const [isEmpty, setIsEmpty] = useState(true);
 
@@ -16,8 +16,8 @@ const Form = () => {
 		setIsEmpty(todoText.trim().length < 1);
 	}, [todoText]);
 
-	// onChangeTodo fires when the user types
-	const onChangeTodo = (event) => {
+	// onChangeHandler fires when the user types
+	const onChangeHandler = (event) => {
 		setTodoText(event.target.value);
 	};
 
@@ -78,7 +78,7 @@ const Form = () => {
 						className="dark:bg-gray-700 dark:placeholder-gray-400 dark:text-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:focus:border-indigo-400 block w-full sm:text-sm border-gray-300 dark:border-transparent rounded-md"
 						placeholder={placeholder}
 						autoComplete="none"
-						onChange={onChangeTodo}
+						onChange={onChangeHandler}
 						value={todoText}
 					/>
 				</div>
