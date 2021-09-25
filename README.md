@@ -8,7 +8,8 @@ As a backend developer I felt I was missing out on the frontend side of things. 
 
 ## How
 
-Some text about the tools should appear here.
+You can check out which tools I used by visiting the `/settings` page.\
+Something you won't find here: the app is deployed through Vercel.
 
 ## Available Scripts
 
