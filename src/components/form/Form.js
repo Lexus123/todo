@@ -75,7 +75,7 @@ const Form = () => {
 						type="text"
 						name="todo"
 						id="todo"
-						className="dark:bg-gray-700 dark:placeholder-gray-400 dark:text-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:focus:border-indigo-400 block w-full sm:text-sm border-gray-300 dark:border-transparent rounded-md"
+						className="dark:bg-gray-700 placeholder-gray-500 dark:placeholder-gray-400 dark:text-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:focus:border-indigo-400 block w-full sm:text-sm border-gray-300 dark:border-transparent rounded-md"
 						placeholder={placeholder}
 						autoComplete="none"
 						onChange={onChangeHandler}
