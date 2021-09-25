@@ -8,6 +8,8 @@ As a backend developer I felt I was missing out on the frontend side of things. 
 
 ## How
 
+Some text about the tools should appear here.
+
 ## Available Scripts
 
 In the project directory, you can run:

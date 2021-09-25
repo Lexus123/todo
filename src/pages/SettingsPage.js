@@ -5,14 +5,14 @@ import { themesActions } from "../store/themes";
 import { localesActions } from "../store/locales";
 import { Fragment } from "react";
 import { Menu } from '@headlessui/react'
-import { ChevronDownIcon, ExternalLinkIcon } from '@heroicons/react/solid'
+import { ChevronDownIcon } from '@heroicons/react/solid'
 import { FormattedMessage } from "react-intl";
 import ListContainer from "../components/ui/ListContainer";
 import DescriptionList from "../components/ui/DescriptionList";
 
-function classNames(...classes) {
+const classNames = (...classes) => {
 	return classes.filter(Boolean).join(' ')
-}
+};
 
 const languages = [
 	{
@@ -25,7 +25,7 @@ const languages = [
 		name: "Nederlands",
 		locale: "nl"
 	}
-]
+];
 
 const tools = [
 	{
@@ -68,7 +68,7 @@ const tools = [
 		link: "https://github.com/gkaemmer/react-fade-in",
 		name: "React Fade In"
 	}
-]
+];
 
 const SettingsPage = () => {
 	const dispatch = useDispatch();
