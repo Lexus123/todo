@@ -19,12 +19,12 @@ const TodoListItem = (props) => {
 		history.push("/todos/" + props.todo.id);
 	};
 
-	const completeTodo = (id) => {
-		dispatch(todosActions.completeTodo(id));
+	const completeTodo = () => {
+		dispatch(todosActions.completeTodo(props.todo.id));
 	};
 
-	const deleteTodo = (id) => {
-		dispatch(todosActions.deleteTodo(id));
+	const deleteTodo = () => {
+		dispatch(todosActions.deleteTodo(props.todo.id));
 	};
 
 	return (
@@ -52,7 +52,7 @@ const TodoListItem = (props) => {
 					</div>
 					<span className="relative z-0 inline-flex shadow-sm rounded-md ml-3 sm:w-auto">
 						<button
-							onClick={() => completeTodo(props.todo.id)}
+							onClick={completeTodo}
 							type="button"
 							className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-green-500 bg-green-50 dark:bg-green-500 text-sm font-medium text-green-600 dark:text-green-100 hover:bg-green-200 dark:hover:bg-green-600 focus:z-10 focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 w-full"
 						>
@@ -60,7 +60,7 @@ const TodoListItem = (props) => {
 							<CheckIcon className="h-5 w-5" aria-hidden="true" />
 						</button>
 						<button
-							onClick={() => deleteTodo(props.todo.id)}
+							onClick={deleteTodo}
 							type="button"
 							className="-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md border border-red-500 bg-red-50 dark:bg-red-500 text-sm font-medium text-red-600 dark:text-red-100 hover:bg-red-200 dark:hover:bg-red-600 focus:z-10 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500 w-full"
 						>
