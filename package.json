@@ -1,8 +1,11 @@
 {
 	"name": "todo.lexvanderwerff.com",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"private": true,
 	"dependencies": {
+		"@testing-library/jest-dom": "^5.14.1",
+		"@testing-library/react": "^12.1.1",
+		"@testing-library/user-event": "^13.2.1",
 		"@craco/craco": "^6.2.0",
 		"@headlessui/react": "^1.4.1",
 		"@heroicons/react": "^1.0.4",
@@ -19,7 +22,8 @@
 		"react-redux": "^7.2.5",
 		"react-router-dom": "^5.3.0",
 		"react-scripts": "4.0.3",
-		"redux-localstorage-simple": "^2.4.1"
+		"redux-localstorage-simple": "^2.4.1",
+		"web-vitals": "^2.1.0"
 	},
 	"scripts": {
 		"start": "craco start",
@@ -45,6 +49,7 @@
 		]
 	},
 	"devDependencies": {
+		"@testing-library/react-hooks": "^7.0.2",
 		"autoprefixer": "^9.8.6",
 		"postcss": "^7.0.36",
 		"tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"
