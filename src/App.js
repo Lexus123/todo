@@ -25,6 +25,7 @@ const App = () => {
 		document.documentElement.classList.add(theme);
 	}, [theme]);
 
+	// Handle i18n stuff.
 	let languagePack;
 	if (locale.toLowerCase().includes("nl")) {
 		languagePack = Dutch;
