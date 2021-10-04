@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Description } from "../../models/descriptions";
+import { Description } from "../../models/description";
 import DescriptionListItem from "./DescriptionListItem";
 
 const DescriptionList: FC<{ descriptions: Description[] }> = (props) => {
