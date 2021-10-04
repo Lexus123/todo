@@ -1,15 +1,17 @@
 import { CheckCircleIcon, TrashIcon } from '@heroicons/react/outline';
 import { CheckIcon } from '@heroicons/react/solid';
+import { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { Todo } from '../../models/todo';
 import { todosActions } from '../../store/todos';
 import { getDateTime } from '../../utils/dates';
 
-const TodoListItem = (props) => {
+const TodoListItem: FC<{ todo: Todo }> = (props) => {
 	const dispatch = useDispatch();
 
-	const history = useHistory();
+	const history = useHistory<History>();
 
 	const dateTime = getDateTime(new Date(props.todo.createdAt), true);
 
@@ -44,7 +46,7 @@ const TodoListItem = (props) => {
 											id="components.todo.added"
 											description="Prefixed text to the date the todo was added"
 											defaultMessage="Added on "
-										/><time dateTime={props.todo.createdAt}>{dateTime}</time>
+										/><time dateTime={props.todo.createdAt.toString()}>{dateTime}</time>
 									</p>
 								</div>
 							</div>

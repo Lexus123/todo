@@ -1,6 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialLocalesState = {
+interface LocalesState {
+	locale: string
+}
+
+const initialLocalesState: LocalesState = {
 	locale: navigator.language
 };
 
@@ -8,7 +12,7 @@ const localesSlice = createSlice({
 	name: "locales",
 	initialState: initialLocalesState,
 	reducers: {
-		setLocale(state, action) {
+		setLocale(state, action: PayloadAction<string>) {
 			state.locale = action.payload;
 		}
 	}

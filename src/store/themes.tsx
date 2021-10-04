@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialThemesState = {
+interface ThemesState {
+	theme: string
+}
+
+const initialThemesState: ThemesState = {
 	theme: window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light"
 };
 

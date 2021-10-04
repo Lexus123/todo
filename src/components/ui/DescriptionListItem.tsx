@@ -1,6 +1,7 @@
 import { ExternalLinkIcon } from "@heroicons/react/solid";
+import { FC } from "react";
 
-const DescriptionListItem = (props) => {
+const DescriptionListItem: FC<{ title: string, name: string, link: string }> = (props) => {
 	return (
 		<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
 			<dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
