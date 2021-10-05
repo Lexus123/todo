@@ -1,14 +1,20 @@
+import { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 import Card from '../components/ui/Card';
 import ListContainer from '../components/ui/ListContainer';
+import { RootState } from '../store';
 import { getDateTime, getTimePassed } from '../utils/dates';
 
-const TodoPage = () => {
-	const params = useParams();
+type todoParams = {
+	todoId: string;
+}
 
-	const todos = useSelector(state => state.todos.todos);
+const TodoPage: FC = () => {
+	const params = useParams<todoParams>();
+
+	const todos = useSelector((state: RootState) => state.todos.todos);
 	const todo = todos.find(todo => todo.id.toString() === params.todoId);
 
 	if (!todo) {
@@ -30,7 +36,7 @@ const TodoPage = () => {
 
 	const createdDate = new Date(todo.createdAt);
 	const dateTime = getDateTime(createdDate, false);
-	const timePassed = getTimePassed(createdDate);
+	const timePassed = getTimePassed(createdDate.getTime());
 
 	return (
 		<ListContainer>
@@ -55,7 +61,7 @@ const TodoPage = () => {
 							/>
 						</dt>
 						<dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-							<time dateTime={todo.createdAt}>{dateTime}</time>
+							<time dateTime={todo.createdAt.toString()}>{dateTime}</time>
 						</dd>
 					</div>
 					<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
