@@ -1,15 +1,16 @@
 import { useDispatch } from 'react-redux';
 import { todosActions } from '../../store/todos';
 import { notificationsActions } from '../../store/notifications';
-import { Fragment, useEffect, useState } from "react";
+import { ChangeEvent, FC, FormEvent, Fragment, useEffect, useState } from "react";
 import { FormattedMessage, useIntl } from 'react-intl';
+import { Todo } from '../../models/todo';
 
-const Form = () => {
+const Form: FC = () => {
 	const dispatch = useDispatch();
 
 	// Setup local state management
-	const [todoText, setTodoText] = useState("");
-	const [isEmpty, setIsEmpty] = useState(true);
+	const [todoText, setTodoText] = useState<string>("");
+	const [isEmpty, setIsEmpty] = useState<boolean>(true);
 
 	// Only check if input field is empty when todoText changes
 	useEffect(() => {
@@ -17,19 +18,19 @@ const Form = () => {
 	}, [todoText]);
 
 	// onChangeHandler fires when the user types
-	const onChangeHandler = (event) => {
+	const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
 		setTodoText(event.target.value);
 	};
 
 	// onSubmitHandler fires when the user submits a form
-	const onSubmitHandler = (event) => {
+	const onSubmitHandler = (event: FormEvent) => {
 		event.preventDefault();
 
 		// Get the current timestamp
 		const date = Date.now();
 
 		// Create the todo object
-		const todo = {
+		const todo: Todo = {
 			completed: false,
 			createdAt: date,
 			id: date,

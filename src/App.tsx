@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { FC, lazy, Suspense, useEffect } from "react";
 import Notification from "./components/notification/Notification";
 import Layout from "./components/layout/Layout";
 import { Redirect, Route, Switch } from "react-router-dom";
@@ -7,6 +7,7 @@ import Loading from "./components/loading/Loading";
 import { FormattedMessage, IntlProvider } from "react-intl";
 import English from "./lang/en.json";
 import Dutch from "./lang/nl.json";
+import { RootState } from "./store";
 
 // Lazy load the individual pages
 const TodosPage = lazy(() => import("./pages/TodosPage"));
@@ -14,10 +15,10 @@ const TodoPage = lazy(() => import("./pages/TodoPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 const SettingsPage = lazy(() => import("./pages/SettingsPage"));
 
-const App = () => {
-	const showNotification = useSelector(state => state.notifications.show);
-	const theme = useSelector(state => state.themes.theme);
-	const locale = useSelector(state => state.locales.locale);
+const App: FC = () => {
+	const showNotification = useSelector((state: RootState) => state.notifications.show);
+	const theme = useSelector((state: RootState) => state.themes.theme);
+	const locale = useSelector((state: RootState) => state.locales.locale);
 
 	// Handle dark/light mode.
 	useEffect(() => {

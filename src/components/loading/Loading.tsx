@@ -1,9 +1,11 @@
+import { FC } from 'react';
 import Loader from 'react-loader-spinner';
 import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 import Card from '../ui/Card';
 
-const Loading = () => {
-	const theme = useSelector(state => state.themes.theme);
+const Loading: FC = () => {
+	const theme = useSelector((state: RootState) => state.themes.theme);
 
 	const color = theme === "light" ? "#373737" : "#EEEEEE";
 

@@ -3,9 +3,10 @@ import { Disclosure } from '@headlessui/react';
 import { Link, useLocation } from 'react-router-dom';
 import { CogIcon } from '@heroicons/react/solid';
 import { FormattedMessage } from 'react-intl';
+import { FC } from 'react';
 
-const Header = (props) => {
-	const location = useLocation();
+const Header: FC<{ title: JSX.Element }> = (props) => {
+	const location = useLocation<Location>();
 
 	const isTodosPage = location.pathname === "/todos";
 

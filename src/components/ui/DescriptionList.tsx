@@ -1,6 +1,8 @@
+import { FC } from "react";
+import { Description } from "../../models/description";
 import DescriptionListItem from "./DescriptionListItem";
 
-const DescriptionList = (props) => {
+const DescriptionList: FC<{ descriptions: Description[] }> = (props) => {
 	return (
 		<dl className="sm:divide-y sm:divide-gray-200 dark:divide-gray-600">
 			{

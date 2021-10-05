@@ -9,12 +9,15 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 import { FormattedMessage } from "react-intl";
 import ListContainer from "../components/ui/ListContainer";
 import DescriptionList from "../components/ui/DescriptionList";
+import { RootState } from "../store";
+import { Language } from "../models/language";
+import { Tool } from "../models/tool";
 
-const classNames = (...classes) => {
+const classNames = (...classes: string[]) => {
 	return classes.filter(Boolean).join(' ')
 };
 
-const languages = [
+const languages: Language[] = [
 	{
 		key: 1,
 		name: "English",
@@ -27,7 +30,7 @@ const languages = [
 	}
 ];
 
-const tools = [
+const tools: Tool[] = [
 	{
 		title: "Frontend framework",
 		link: "https://github.com/facebook/react",
@@ -73,16 +76,20 @@ const tools = [
 const SettingsPage = () => {
 	const dispatch = useDispatch();
 
-	const theme = useSelector(state => state.themes.theme);
-	const locale = useSelector(state => state.locales.locale);
+	const theme = useSelector((state: RootState) => state.themes.theme);
+	const locale = useSelector((state: RootState) => state.locales.locale);
 
-	const language = languages.find(lang => locale.toLowerCase().includes(lang.locale));
+	const language = languages.find(lang => locale.toLowerCase().includes(lang.locale)) || {
+		key: 1,
+		name: "English",
+		locale: "en"
+	};
 
 	const changeThemeHandler = () => {
 		dispatch(themesActions.toggleTheme());
 	};
 
-	const changeLocaleHandler = (locale) => {
+	const changeLocaleHandler = (locale: string) => {
 		dispatch(localesActions.setLocale(locale));
 	};
 

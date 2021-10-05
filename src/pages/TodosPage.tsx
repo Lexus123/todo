@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { FC, Fragment } from "react";
 import Card from "../components/ui/Card";
 import SearchSort from "../components/searchsort/SearchSort";
 import Form from "../components/form/Form";
@@ -6,15 +6,17 @@ import Empty from "../components/todo/Empty";
 import TodoList from "../components/todo/TodoList";
 import { useSelector } from 'react-redux';
 import ListContainer from "../components/ui/ListContainer";
+import { RootState } from "../store";
+import { Todo } from "../models/todo";
 
-const TodosPage = () => {
+const TodosPage: FC = () => {
 	// Get some store values
-	const searchText = useSelector(state => state.todos.searchText);
-	const sortMethod = useSelector(state => state.todos.sortMethod);
-	const todos = useSelector(state => state.todos.todos);
+	const searchText = useSelector((state: RootState) => state.todos.searchText);
+	const sortMethod = useSelector((state: RootState) => state.todos.sortMethod);
+	const todos = useSelector((state: RootState) => state.todos.todos);
 
 	// Sort the array
-	let sortedTodos = [];
+	let sortedTodos: Todo[] = [];
 
 	if (sortMethod.key === 1) {
 		sortedTodos = [...todos].sort((a, b) => a.text > b.text ? 1 : -1);
@@ -43,7 +45,7 @@ const TodosPage = () => {
 				<SearchSort searchValue={searchText} />
 			</Card>
 			{!hasTodos && <Empty />}
-			<ListContainer padding={false}>
+			<ListContainer>
 				<TodoList todos={searchedTodos} />
 			</ListContainer>
 		</Fragment>

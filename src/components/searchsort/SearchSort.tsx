@@ -1,14 +1,15 @@
 import { useDispatch } from 'react-redux';
-import { todosActions } from '../../store/todos';
+import { SortMethod, todosActions } from '../../store/todos';
 import { Menu } from '@headlessui/react'
 import { ChevronDownIcon, SearchIcon, SortAscendingIcon } from '@heroicons/react/solid'
 import { FormattedMessage, useIntl } from 'react-intl';
+import { ChangeEvent, FC } from 'react';
 
-const classNames = (...classes) => {
+const classNames = (...classes: string[]) => {
 	return classes.filter(Boolean).join(' ')
 }
 
-const sorts = [
+const sorts: SortMethod[] = [
 	{
 		key: 1,
 		on: "Name",
@@ -31,14 +32,14 @@ const sorts = [
 	}
 ];
 
-const SearchSort = (props) => {
+const SearchSort: FC<{ searchValue: string }> = (props) => {
 	const dispatch = useDispatch();
 
-	const searchHandler = (event) => {
+	const searchHandler = (event: ChangeEvent<HTMLInputElement>) => {
 		dispatch(todosActions.setSearchText(event.target.value));
 	};
 
-	const sortHandler = (sort) => {
+	const sortHandler = (sort: SortMethod) => {
 		dispatch(todosActions.setSortMethod(sort));
 	};
 

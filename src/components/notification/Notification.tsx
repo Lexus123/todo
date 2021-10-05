@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { FC, Fragment } from 'react'
 import { useDispatch } from 'react-redux';
 import { Transition } from '@headlessui/react'
 import { CheckCircleIcon } from '@heroicons/react/outline'
@@ -6,7 +6,7 @@ import { XIcon } from '@heroicons/react/solid'
 import { notificationsActions } from '../../store/notifications';
 import { FormattedMessage } from 'react-intl';
 
-const Notification = (props) => {
+const Notification: FC<{ show: boolean }> = (props) => {
 	const dispatch = useDispatch();
 
 	const closeNotification = () => {
