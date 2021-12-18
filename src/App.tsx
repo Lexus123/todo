@@ -1,7 +1,7 @@
 import { FC, lazy, Suspense, useEffect } from "react";
 import Notification from "./components/notification/Notification";
 import Layout from "./components/layout/Layout";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Loading from "./components/loading/Loading";
 import { FormattedMessage, IntlProvider } from "react-intl";
@@ -46,23 +46,13 @@ const App: FC = () => {
 		<IntlProvider locale={locale} messages={languagePack}>
 			<Layout title={title}>
 				<Suspense fallback={<Loading />}>
-					<Switch>
-						<Route path="/" exact>
-							<Redirect to="todos" />
-						</Route>
-						<Route path="/todos" exact>
-							<TodosPage />
-						</Route>
-						<Route path='/todos/:todoId'>
-							<TodoPage />
-						</Route>
-						<Route path="/settings" exact>
-							<SettingsPage />
-						</Route>
-						<Route path="*">
-							<NotFoundPage />
-						</Route>
-					</Switch>
+					<Routes>
+						<Route path="/" element={<Navigate to="todos" />} />
+						<Route path="/todos" element={<TodosPage />} />
+						<Route path='/todos/:todoId' element={<TodoPage />} />
+						<Route path="/settings" element={<SettingsPage />} />
+						<Route path="*" element={<NotFoundPage />} />
+					</Routes>
 				</Suspense>
 				<Notification show={showNotification} />
 			</Layout>

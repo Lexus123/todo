@@ -3,7 +3,7 @@ import { CheckIcon } from '@heroicons/react/solid';
 import { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Todo } from '../../models/todo';
 import { todosActions } from '../../store/todos';
 import { getDateTime } from '../../utils/dates';
@@ -11,14 +11,14 @@ import { getDateTime } from '../../utils/dates';
 const TodoListItem: FC<{ todo: Todo }> = (props) => {
 	const dispatch = useDispatch();
 
-	const history = useHistory<History>();
+	const navigate = useNavigate();
 
 	const dateTime = getDateTime(new Date(props.todo.createdAt), true);
 
 	const checkmarkClases = props.todo.completed ? "h-6 w-6 text-green-400" : "h-6 w-6 text-gray-300 dark:text-gray-400";
 
 	const viewTodoHandler = () => {
-		history.push("/todos/" + props.todo.id);
+		navigate("/todos/" + props.todo.id);
 	};
 
 	const completeTodo = () => {

@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import { FC } from 'react';
 
 const Header: FC<{ title: JSX.Element }> = (props) => {
-	const location = useLocation<Location>();
+	const location = useLocation();
 
 	const isTodosPage = location.pathname === "/todos";
 

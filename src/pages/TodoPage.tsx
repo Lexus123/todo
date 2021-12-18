@@ -7,12 +7,8 @@ import ListContainer from '../components/ui/ListContainer';
 import { RootState } from '../store';
 import { getDateTime, getTimePassed } from '../utils/dates';
 
-type todoParams = {
-	todoId: string;
-}
-
 const TodoPage: FC = () => {
-	const params = useParams<todoParams>();
+	const params = useParams();
 
 	const todos = useSelector((state: RootState) => state.todos.todos);
 	const todo = todos.find(todo => todo.id.toString() === params.todoId);
